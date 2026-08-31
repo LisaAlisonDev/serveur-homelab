@@ -1,0 +1,18 @@
+.env
+*.log
+.vs
+
+# Node / Next
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/build
+
+# Env
+frontend/.env
+frontend/.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

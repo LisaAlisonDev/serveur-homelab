@@ -1,6 +1,6 @@
 # Homelab - Docker, Next.js & Nginx
 
-Un projet complet de **plateforme généraliste full-stack** utilisant **Next.js** (frontend + API routes) et **Nginx** comme reverse proxy.
+Un projet complet de **plateforme généraliste full-stack** utilisant **Next.js** (app + API routes) et **Nginx** comme reverse proxy.
 
 ---
 
@@ -88,7 +88,7 @@ homelab/
 │   ├── nginx.conf
 │   ├── default.conf
 │   └── ssl/
-├── frontend/
+├── app/
 │   ├── Dockerfile
 │   ├── package.json
 │   ├── next.config.js
@@ -105,17 +105,17 @@ homelab/
 
 ```bash
 # Logs
-docker-compose logs -f frontend
-docker-compose logs -f nginx
+docker compose logs -f app
+docker compose logs -f nginx
 
 # Shell
-docker-compose exec frontend sh
-docker-compose exec frontend npm run dev
+docker compose exec app sh
+docker compose exec app npm run dev
 
 # Rebuild
-docker-compose build --no-cache
-docker-compose up -d --build
+docker compose build --no-cache
+docker compose up -d --build
 
 # Arrêter
-docker-compose down
+docker compose down
 ```

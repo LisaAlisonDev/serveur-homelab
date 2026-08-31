@@ -3,14 +3,14 @@
 .vs
 
 # Node / Next
-frontend/node_modules
-frontend/.next
-frontend/out
-frontend/build
+app/node_modules
+app/.next
+app/out
+app/build
 
 # Env
-frontend/.env
-frontend/.env.*
+app/.env
+app/.env.*
 
 # Logs
 npm-debug.log*

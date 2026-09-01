@@ -42,6 +42,8 @@ services:
           ipv4_address: 172.26.0.3
       app-network:
           ipv4_address: 172.27.0.4
+      admin-network:
+          ipv4_address: 172.29.0.3
     restart: unless-stopped
 
   postgres:
@@ -74,8 +76,6 @@ services:
     image: elestio/pgadmin:latest
     container_name: pgadmin
     restart: unless-stopped
-    ports:
-      - "5050:80"
     env_file:
       - .env
       # - ../../.env.development.local
@@ -86,6 +86,8 @@ services:
     networks:
       db-network:
           ipv4_address: 172.28.0.4
+      admin-network:
+        ipv4_address: 172.29.0.4
 
 volumes:
   homelab-data:
@@ -95,9 +97,16 @@ volumes:
     driver: local
 
 networks:
+  admin-network:
+    name: homelab-admin
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/24
+          gateway: 172.29.0.1
    # Réseau exposé uniquement au reverse proxy.
   proxy-network:
-    name: homelab-proxy
+    name: proxy-network
     driver: bridge
     ipam:
       config:
@@ -106,7 +115,7 @@ networks:
 
   # Communication Nginx <-> App.
   app-network:
-    name: homelab-app
+    name: app-network
     driver: bridge
     internal: true
     ipam:
@@ -116,7 +125,7 @@ networks:
 
   # Communication App <-> PostgreSQL <-> pgAdmin.
   db-network:
-    name: homelab-db
+    name: db-network
     driver: bridge
     internal: true
     ipam:

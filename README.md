@@ -51,7 +51,7 @@ Client (Browser)
 ### 1. Cloner le repo
 
 ```bash
-git clone https://github.com/yourusername/homelab.git
+git clone git@github.com:LisaAlisonDev/serveur-homelab.git
 cd homelab
 ```
 
@@ -78,26 +78,6 @@ docker-compose ps
 
 ---
 
-## 📁 Structure actuelle
-
-```
-homelab/
-├── docker-compose.yml
-├── nginx/
-│   ├── Dockerfile
-│   ├── nginx.conf
-│   ├── default.conf
-│   └── ssl/
-├── app/
-│   ├── Dockerfile
-│   ├── package.json
-│   ├── next.config.js
-│   ├── pages/
-│   ├── components/
-│   ├── public/
-│   └── .dockerignore
-└── README.md
-```
 
 ---
 

@@ -1,46 +1,47 @@
 import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function HomePage() {
   return (
-    <main className="pageShell">
-      <section className="homeContainer">
-        <header className="homeHeader">
-          <div className="brand">Homelab</div>
-          <nav className="navActions" aria-label="Navigation principale">
-            <Link href="/login" className="navButton secondaryButton">
+    <main className={styles.pageShell}>
+      <section className={styles.homeContainer}>
+        <header className={styles.homeHeader}>
+          <div className={styles.brand}>Homelab</div>
+          <nav className={styles.navActions} aria-label="Navigation principale">
+            <Link href="/login" className={`${styles.navButton} ${styles.secondaryButton}`}>
               Connexion
             </Link>
-            <Link href="/register" className="navButton primaryButton">
+            <Link href="/register" className={`${styles.navButton} ${styles.primaryButton}`}>
               Inscription
             </Link>
           </nav>
         </header>
 
-        <div className="homeContent">
-          <div className="hero">
+        <div className={styles.homeContent}>
+          <div className={styles.hero}>
             <h1>Votre espace maison, simple et centralisé.</h1>
             <p>
               Gérez votre serveur, vos services et vos accès depuis une interface
               moderne pensée pour un usage quotidien rapide et serein.
             </p>
 
-            <div className="heroActions">
-              <Link href="/register" className="primaryButton">
+            <div className={styles.heroActions}>
+              <Link href="/register" className={styles.primaryButton}>
                 Créer un compte
               </Link>
-              <Link href="/login" className="secondaryButton">
+              <Link href="/login" className={styles.secondaryButton}>
                 Se connecter
               </Link>
             </div>
 
-            <ul className="featureList">
+            <ul className={styles.featureList}>
               <li>✅ Tableau d’accueil simple et lisible</li>
               <li>✅ Authentification sécurisée</li>
               <li>✅ Interface pensée pour le self-hosting</li>
             </ul>
           </div>
 
-          <aside className="infoPanel">
+          <aside className={styles.infoPanel}>
             <h2>À propos</h2>
             <p>
               Cette plateforme sert de base pour votre environnement domestique,
@@ -48,7 +49,7 @@ export default function HomePage() {
               l’inscription des utilisateurs.
             </p>
 
-            <div className="userCard">
+            <div className={styles.userCard}>
               <p>
                 <strong>Statut :</strong> système prêt à recevoir vos services et
                 utilisateurs.

@@ -16,7 +16,7 @@ services:
           ipv4_address: 172.28.0.3
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:${APP_PORT}/api/health > /dev/null || exit 1"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:${APP_PORT}/api/health > /dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -45,6 +45,12 @@ services:
       admin-network:
           ipv4_address: 172.29.0.3
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://127.0.0.1/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
 
   postgres:
     image: postgres:16.11-alpine3.22

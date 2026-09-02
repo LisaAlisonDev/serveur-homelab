@@ -16,7 +16,7 @@ services:
           ipv4_address: 172.28.0.3
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "node -e \"fetch('http://localhost:${APP_PORT}').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))\""]
+      test: ["CMD-SHELL", "wget -qO- http://localhost:${APP_PORT}/api/health > /dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
